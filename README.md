@@ -1,4 +1,4 @@
-# Python Hackathon Backend – Optimized for rapid development and Feedback-Driven shipping (Mistral 2024, OpenAI 2025 (Paris), DeepMind Medgemma 2025)
+# Python Hackathon Backend – Optimized for rapid development and Feedback-Driven shipping (Mistral 2024, OpenAI 2025, DeepMind Medgemma 2025)
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0) ![Maintainer](https://img.shields.io/badge/maintainer-@louisbrulenaudet-blue) ![Python Version](https://img.shields.io/badge/python-3.12%2B-blue.svg) ![Code Style](https://img.shields.io/badge/code%20style-ruff-000000.svg) ![Package Manager](https://img.shields.io/badge/package%20manager-uv-purple.svg)
 
 In order to run the backend the fastest way possible, you can use the makefile setup and uv for Python dependency management.
@@ -11,7 +11,7 @@ You can get your IP address by running the following command:
 ipconfig getifaddr en0
 ```
 
-Note: do not forget to disable your firewall or allow the port 8001 in your firewall settings to allow the frontend team to connect to your backend. Make commands are only available in unix-like systems (Linux, macOS). For Windows users, you can use the WSL (Windows Subsystem for Linux) to run these commands.
+> Do not forget to disable your firewall or allow the port 8001 in your firewall settings to allow the frontend team to connect to your backend. Make commands are only available in unix-like systems (Linux, macOS). For Windows users, you can use the WSL (Windows Subsystem for Linux) to run these commands.
 
 To ensure smooth development and minimize conflicts, it is recommended to implement each component in its own dedicated router and corresponding business logic files within the `core` directory. This modular approach enables you to test and develop components independently, reducing the risk of interfering with other parts of the application. Organizing your code in this way enhances maintainability, scalability, and clarity, making it easier to merge core features across branches and integrate them into different routers as the project evolves.
 
@@ -40,8 +40,6 @@ uv add transformers
 ## Environment Setup
 
 1. Copy `.env.template` to `.env` and adjust variables as needed.
-
----
 
 ## Quick Start
 
@@ -82,3 +80,22 @@ make prod
   ```sh
   make format
   ```
+
+## Citing this project
+
+If you use this code in your research, please use the following BibTeX entry.
+
+```BibTeX
+@misc{louisbrulenaudet2025,
+author = {Louis Brulé Naudet},
+title = {Python Hackathon Backend – Optimized for rapid development and Feedback-Driven shipping (Mistral 2024, OpenAI 2025, DeepMind Medgemma 2025)},
+howpublished = {\url{https://github.com/louisbrulenaudet/hackathon-backend}},
+year = {2025}
+}
+```
+
+---
+
+## Feedback
+
+If you have any feedback, please reach out at [louisbrulenaudet@icloud.com](mailto:louisbrulenaudet@icloud.com).
