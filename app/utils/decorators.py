@@ -30,9 +30,12 @@ def retry(
                     result = func(*args, **kwargs)
                     return result
                 except Exception as e:
-                    if (i == max_retries - 1 or (
-                        non_retry_exceptions and isinstance(e, non_retry_exceptions)
-                    )) and raises_on_exception:
+                    if (
+                        i == max_retries - 1
+                        or (
+                            non_retry_exceptions and isinstance(e, non_retry_exceptions)
+                        )
+                    ) and raises_on_exception:
                         raise e
                     if sleep_time:
                         sleep(sleep_time)
@@ -68,9 +71,12 @@ def async_retry(
                     result = await func(*args, **kwargs)
                     return result
                 except Exception as e:
-                    if (i == max_retries - 1 or (
-                        non_retry_exceptions and isinstance(e, non_retry_exceptions)
-                    )) and raises_on_exception:
+                    if (
+                        i == max_retries - 1
+                        or (
+                            non_retry_exceptions and isinstance(e, non_retry_exceptions)
+                        )
+                    ) and raises_on_exception:
                         raise e
                     if sleep_time:
                         await asyncio.sleep(sleep_time)

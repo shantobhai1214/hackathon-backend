@@ -58,7 +58,6 @@ class CoreError(Exception):
             f"CoreError: {self.message} [Code: {self.code}] Details: {self.details}"
         )
 
-
     def __str__(self) -> str:
         """
         Return a string representation of the error, including the message, code, and optional details.

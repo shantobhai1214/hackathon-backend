@@ -11,4 +11,3 @@ def get_app() -> FastAPI:
     from app.main import app
 
     return app
-
