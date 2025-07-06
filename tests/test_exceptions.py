@@ -12,10 +12,12 @@ def test_core_error_str_and_dict():
     assert d["code"] == ErrorCodes.CLIENT_INITIALIZATION_ERROR
     assert d["details"] == {"foo": "bar"}
 
+
 def test_core_error_no_details():
     err = CoreError("msg", ErrorCodes.CLIENT_INITIALIZATION_ERROR)
     d = err.to_dict()
     assert d["details"] == {}
+
 
 def test_client_initialization_error():
     err = ClientInitializationError("fail")

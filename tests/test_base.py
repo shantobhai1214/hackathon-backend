@@ -12,6 +12,7 @@ def test_ping_endpoint():
     assert isinstance(data["uptime"], int)
     assert isinstance(data["timestamp"], int)
 
+
 def test_health_endpoint():
     client = TestClient(app)
     response = client.get("/api/v1/health")
