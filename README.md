@@ -31,6 +31,12 @@ make dev
 
 Then you can ping the API at [http://127.0.0.1:8000/api/v1/ping](http://127.0.0.1:8000/api/v1/ping).
 
+If you need to install packages such as transformers, you can do so with the following command:
+
+```sh
+uv add transformers
+```
+
 ## Environment Setup
 
 1. Copy `.env.template` to `.env` and adjust variables as needed.
