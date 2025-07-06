@@ -1,4 +1,4 @@
-# Hackathon backend based on FastAPI, Pydantic, and uv for fast development and shipping optimized feedbacks from previous hackathons (Mistral, OpenAI, Deepmind)
+# Python Hackathon Backend – Optimized for rapid development and Feedback-Driven shipping (Mistral 2024, OpenAI 2025 (Paris), DeepMind Medgemma 2025)
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0) ![Maintainer](https://img.shields.io/badge/maintainer-@louisbrulenaudet-blue) ![Python Version](https://img.shields.io/badge/python-3.12%2B-blue.svg) ![Code Style](https://img.shields.io/badge/code%20style-ruff-000000.svg) ![Package Manager](https://img.shields.io/badge/package%20manager-uv-purple.svg)
 
 In order to run the backend the fastest way possible, you can use the makefile setup and uv for Python dependency management.
