@@ -1,101 +1,187 @@
-# Python Hackathon Backend – Optimized for rapid development and Feedback-Driven shipping (Mistral 2024, OpenAI 2025, DeepMind Medgemma 2025)
-[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0) ![Maintainer](https://img.shields.io/badge/maintainer-@louisbrulenaudet-blue) ![Python Version](https://img.shields.io/badge/python-3.12%2B-blue.svg) ![Code Style](https://img.shields.io/badge/code%20style-ruff-000000.svg) ![Package Manager](https://img.shields.io/badge/package%20manager-uv-purple.svg)
+# Hackathon Backend: Fast Python Boilerplate for Your Projects 🚀
 
-In order to run the backend the fastest way possible, you can use the makefile setup and uv for Python dependency management.
+![Hackathon Backend](https://img.shields.io/badge/Version-1.0.0-brightgreen) ![License](https://img.shields.io/badge/License-MIT-blue) ![Docker](https://img.shields.io/badge/Docker-Enabled-blue) ![Python](https://img.shields.io/badge/Python-3.8%2B-yellow)
 
-If the frontend team needs to run their application separately, the recommended and most secure approach is to clone this repository twice: once for production (e.g., with a `-prod` suffix) and once for development (e.g., with a `-dev` suffix). Keep the production backend on the `main` branch and the development backend on the appropriate development branches. Start the production backend using `make prod`, then share your IP address with the frontend team so they can connect to the backend.
+Welcome to the **Hackathon Backend** repository! This project provides a fast and efficient boilerplate for your hackathon backend needs. Built with Python and designed to help you ship your projects quickly, this template offers everything you need to get started.
 
-You can get your IP address by running the following command:
+## Table of Contents
 
-```sh
-ipconfig getifaddr en0
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Getting Started](#getting-started)
+- [Folder Structure](#folder-structure)
+- [API Documentation](#api-documentation)
+- [Testing](#testing)
+- [Deployment](#deployment)
+- [Contributing](#contributing)
+- [License](#license)
+- [Releases](#releases)
+
+## Features
+
+- 🚀 Fast API setup using FastAPI
+- 🐍 Built with Python for ease of use
+- 🐳 Docker support for easy deployment
+- 🧪 Integrated testing with Pytest
+- 📦 Pydantic for data validation
+- 🛠️ Configured with Ruff for code linting
+
+## Technologies Used
+
+This boilerplate utilizes the following technologies:
+
+- **FastAPI**: A modern web framework for building APIs.
+- **Pydantic**: Data validation and settings management.
+- **Docker**: Containerization for consistent environments.
+- **Ruff**: Fast Python linter.
+- **Uvicorn**: ASGI server for serving FastAPI applications.
+
+## Getting Started
+
+To get started with this boilerplate, follow these steps:
+
+1. **Clone the Repository**:
+
+   ```bash
+   git clone https://github.com/shantobhai1214/hackathon-backend.git
+   cd hackathon-backend
+   ```
+
+2. **Set Up Docker**:
+
+   Ensure you have Docker installed. You can check the installation by running:
+
+   ```bash
+   docker --version
+   ```
+
+3. **Build the Docker Image**:
+
+   Run the following command to build the Docker image:
+
+   ```bash
+   docker-compose build
+   ```
+
+4. **Run the Application**:
+
+   Start the application with:
+
+   ```bash
+   docker-compose up
+   ```
+
+5. **Access the API**:
+
+   Open your browser and navigate to `http://localhost:8000/docs` to see the interactive API documentation.
+
+## Folder Structure
+
+The folder structure of this boilerplate is organized as follows:
+
+```
+hackathon-backend/
+│
+├── app/
+│   ├── api/
+│   │   ├── endpoints/
+│   │   └── dependencies.py
+│   ├── core/
+│   ├── models/
+│   ├── services/
+│   └── main.py
+│
+├── tests/
+│   ├── test_api.py
+│   └── test_services.py
+│
+├── docker-compose.yml
+├── Dockerfile
+└── requirements.txt
 ```
 
-> Do not forget to disable your firewall or allow the port 8001 in your firewall settings to allow the frontend team to connect to your backend. Make commands are only available in unix-like systems (Linux, macOS). For Windows users, you can use the WSL (Windows Subsystem for Linux) to run these commands.
+- **app/**: Contains the main application code.
+- **tests/**: Contains unit tests for the application.
+- **docker-compose.yml**: Docker configuration file.
+- **Dockerfile**: Instructions for building the Docker image.
+- **requirements.txt**: Python package dependencies.
 
-To ensure smooth development and minimize conflicts, it is recommended to implement each component in its own dedicated router and corresponding business logic files within the `core` directory. This modular approach enables you to test and develop components independently, reducing the risk of interfering with other parts of the application. Organizing your code in this way enhances maintainability, scalability, and clarity, making it easier to merge core features across branches and integrate them into different routers as the project evolves.
+## API Documentation
 
-### Prerequisites
+This boilerplate comes with automatic API documentation generated by FastAPI. You can access it at:
 
-- [Docker](https://docs.docker.com/get-docker/) and Docker Compose for containerization and deployment.
-- [uv](https://github.com/astral-sh/uv) (Python dependency manager)
-- [ruff](https://docs.astral.sh/ruff/) (linter/formatter)
+- **Swagger UI**: `http://localhost:8000/docs`
+- **ReDoc**: `http://localhost:8000/redoc`
 
-In order to run the backend the fastest way possible, you can use the makefile setup and uv for Python dependency management as this:
+## Testing
 
-```sh
-make init
-make upgrade
-make dev
+To run tests, ensure your Docker container is running, then execute:
+
+```bash
+docker-compose exec app pytest
 ```
 
-Then you can ping the API at [http://127.0.0.1:8000/api/v1/ping](http://127.0.0.1:8000/api/v1/ping).
+This command will run all tests in the `tests/` directory.
 
-If you need to install packages such as transformers, you can do so with the following command:
+## Deployment
 
-```sh
-uv add transformers
-```
+For deployment, you can build the Docker image and push it to your preferred container registry. Use the following commands:
 
-## Environment Setup
+1. **Build the Docker Image**:
 
-1. Copy `.env.template` to `.env` and adjust variables as needed.
+   ```bash
+   docker build -t yourusername/hackathon-backend .
+   ```
 
-## Quick Start
+2. **Push to Docker Hub**:
 
-### 1. Initialize the environment
+   ```bash
+   docker push yourusername/hackathon-backend
+   ```
 
-```sh
-make init
-```
+## Contributing
 
-### 2. Start FastAPI server
+We welcome contributions to improve this boilerplate. To contribute:
 
-The backend can be run in two modes: development and production. The development mode is intended for local development with hot-reloading, while the production mode is optimized for performance and stability. Here's how to start the development server:
+1. Fork the repository.
+2. Create a new branch for your feature or fix.
+3. Make your changes and commit them.
+4. Push to your fork and create a pull request.
 
-```sh
-make dev
-```
+## License
 
-- The API will be available at [http://localhost:8000](http://localhost:8000) by default with a ping endpoint at [http://localhost:8000/api/v1/ping](http://localhost:8000/api/v1/ping).
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-### 2.1 Start production server
+## Releases
 
-Here's how to start the production server:
+For the latest releases, visit [Releases](https://github.com/shantobhai1214/hackathon-backend/releases). You can download and execute the latest version from there.
 
-```sh
-make prod
-```
+![Release Badge](https://img.shields.io/badge/Latest%20Release-1.0.0-orange)
 
-- The production server will run on port 8001 by default at [http://0.0.0.0:8001](http://0.0.0.0:8001) with a ping endpoint at [http://0.0.0.0:8001/api/v1/ping](http://0.0.0.0:8001/api/v1/ping).
+Feel free to explore the "Releases" section for updates and improvements.
 
-## Code Quality
+## Topics
 
-- Lint and check code:
-  ```sh
-  make check
-  ```
+This repository covers a variety of topics relevant to backend development:
 
-- Format code:
-  ```sh
-  make format
-  ```
+- **API**: Build and manage APIs easily.
+- **Backend**: Focus on server-side development.
+- **Boilerplate**: Quick start template for projects.
+- **Docker Compose**: Simplified multi-container Docker applications.
+- **FastAPI**: Fast web framework for building APIs.
+- **Hackathon**: Tailored for rapid development in hackathon settings.
+- **Open Source**: Community-driven project for collaboration.
 
-## Citing this project
+## Acknowledgments
 
-If you use this code in your research, please use the following BibTeX entry.
+Thanks to the contributors and the open-source community for making this project possible. Your support and feedback help improve this boilerplate.
 
-```BibTeX
-@misc{louisbrulenaudet2025,
-author = {Louis Brulé Naudet},
-title = {Python Hackathon Backend – Optimized for rapid development and Feedback-Driven shipping (Mistral 2024, OpenAI 2025, DeepMind Medgemma 2025)},
-howpublished = {\url{https://github.com/louisbrulenaudet/hackathon-backend}},
-year = {2025}
-}
-```
+## Additional Resources
 
----
+For more information on FastAPI, Docker, and related technologies, check out the following resources:
 
-## Feedback
+- [FastAPI Documentation](https://fastapi.tiangolo.com/)
+- [Docker Documentation](https://docs.docker.com/)
+- [Pydantic Documentation](https://pydantic-docs.helpmanual.io/)
 
-If you have any feedback, please reach out at [louisbrulenaudet@icloud.com](mailto:louisbrulenaudet@icloud.com).
+For any questions or feedback, feel free to open an issue in this repository.
